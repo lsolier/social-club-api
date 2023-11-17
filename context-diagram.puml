@@ -1,0 +1,26 @@
+@startuml
+!define ENTITY class
+!define ENDENTITY 
+
+!define ASSOCIATION -[hidden]->
+
+ENTITY Member {
+  + name: String
+  + email: String
+  + birthday: Date
+}
+ENDENTITY
+
+ENTITY Club {
+  + name: String
+  + foundationDate: Date
+  + image: String
+  + description: String
+}
+ENDENTITY
+
+Member --> Club: Can be in multiple
+Club --> Member: Comprised of multiple
+@enduml
+
+
