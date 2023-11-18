@@ -1,4 +1,7 @@
 import { Module } from '@nestjs/common';
+import { ClubMemberService } from './club-member.service';
 
-@Module({})
+@Module({
+  providers: [ClubMemberService]
+})
 export class ClubMemberModule {}
