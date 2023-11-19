@@ -19,7 +19,7 @@ export class ClubEntity {
     @Column()
     description: string;
 
-    @ManyToMany(() => MemberEntity, memeber => memeber.clubs)
+    @ManyToMany(() => MemberEntity, member => member.clubs)
     @JoinTable()
     members: MemberEntity[]
 

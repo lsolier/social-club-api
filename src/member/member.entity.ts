@@ -17,7 +17,6 @@ export class MemberEntity {
     birthday: Date;
 
     @ManyToMany(() => ClubEntity, club => club.members)
-    @JoinTable()
     clubs: ClubEntity[];
 
 }

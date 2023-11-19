@@ -1,10 +1,12 @@
-import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, Param, Post, Put, UseInterceptors } from '@nestjs/common';
 import { ClubMemberService } from './club-member.service';
-import { MemberDto } from 'src/member/member.dto';
+import { MemberDto } from '../member/member.dto';
 import { plainToInstance } from 'class-transformer';
-import { MemberEntity } from 'src/member/member.entity';
+import { MemberEntity } from '../member/member.entity';
+import { BusinessErrorsInterceptor } from '../shared/interceptors/business-errors.interceptor';
 
 @Controller('clubs')
+@UseInterceptors(BusinessErrorsInterceptor)
 export class ClubMemberController {
 
     constructor(private readonly clubMemberService: ClubMemberService) {}

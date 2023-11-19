@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import {IsDate, IsNotEmpty, IsString, IsUrl} from 'class-validator';
+import {IsDate, IsNotEmpty, IsString, IsUrl, MaxLength} from 'class-validator';
 export class ClubDto {
     
     @IsString()
@@ -16,6 +16,7 @@ export class ClubDto {
  
     @IsString()
     @IsNotEmpty()
+    @MaxLength(100)
     readonly description: string;
 
 }
