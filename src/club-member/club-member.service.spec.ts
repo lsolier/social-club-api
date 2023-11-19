@@ -188,7 +188,7 @@ describe('ClubMemberService', () => {
     await expect(()=> service.deleteMemberFromClub("0", member.id)).rejects.toHaveProperty("message", "The club with the given id was not found");
   });
 
-  it('deleteMemberFromClub should thrown an exception for an non asocciated restaurante', async () => {
+  it('deleteMemberFromClub should thrown an exception for an non asocciated club', async () => {
     const newMember: MemberEntity = await memberRepository.save({
       name: faker.person.fullName(),
       email: faker.internet.email(),
