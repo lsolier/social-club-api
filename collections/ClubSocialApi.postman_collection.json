@@ -1,0 +1,3435 @@
+{
+	"info": {
+		"_postman_id": "1ac43777-df8c-4254-9b6b-b54e40165738",
+		"name": "ClubSocialApi",
+		"description": "The purpose of this application is to create a social club system.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3361414"
+	},
+	"item": [
+		{
+			"name": "Member",
+			"item": [
+				{
+					"name": "Get all members",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Number of museums > ' + 0, function () {",
+									"   var data = pm.response.json()",
+									"   pm.expect(data.length).to.greaterThan(0)",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/members",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"members"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/v1/members",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"members"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n        \"name\": \"Luis Solier Sajami\",\n        \"email\": \"l.soier@uniandes.edu.co\",\n        \"birthday\": \"1992-07-31\",\n        \"clubs\": [\n            {\n                \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n                \"name\": \"Club A\",\n                \"foundationDate\": \"1980-06-15\",\n                \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n                \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n            },\n            {\n                \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n                \"name\": \"Club B\",\n                \"foundationDate\": \"2000-07-01\",\n                \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n                \"description\": \"Descrpcion de club B maximo 100 caracteres\"\n            }\n        ]\n    },\n    {\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n        \"name\": \"Pedro Ruiz Gallo\",\n        \"email\": \"elpepe@uniandes.edu.co\",\n        \"birthday\": \"1992-07-31\",\n        \"clubs\": [\n            {\n                \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n                \"name\": \"Club A\",\n                \"foundationDate\": \"1980-06-15\",\n                \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n                \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a memeber",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/members/{{member_id}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"members",
+								"{{member_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/v1/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\",\n    \"clubs\": [\n        {\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n            \"name\": \"Club A\",\n            \"foundationDate\": \"1980-06-15\",\n            \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n            \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n        },\n        {\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n            \"name\": \"Club B\",\n            \"foundationDate\": \"2000-07-01\",\n            \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n            \"description\": \"Descrpcion de club B maximo 100 caracteres\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "404 NOT FOUND",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/members/00000000-0000-0000-0000-000000000000",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"members",
+										"00000000-0000-0000-0000-000000000000"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get an invalid memeber",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/members/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"members",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\",\n    \"clubs\": [\n        {\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n            \"name\": \"Club A\",\n            \"foundationDate\": \"1980-06-15\",\n            \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n            \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n        },\n        {\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n            \"name\": \"Club B\",\n            \"foundationDate\": \"2000-07-01\",\n            \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n            \"description\": \"Descrpcion de club B maximo 100 caracteres\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "404 NOT FOUND",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.globals.set(\"member_id\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/members",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"members"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 CREATED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/v1/members",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"members"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\",\n    \"clubs\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a member 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.globals.set(\"member_id_2\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Paolo Guerrero\",\n    \"email\": \"p.guerrero@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/members",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"members"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 CREATED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/members",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"members"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\",\n    \"clubs\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a member 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.globals.set(\"member_id_3\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Lapadula\",\n    \"email\": \"lapadula@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/members",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"members"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 CREATED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/members",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"members"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\",\n    \"clubs\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Add an invalid member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"fail-email\",\n    \"birthday\": \"1992-07-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/members",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"members"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 CREATED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/members",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"members"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\",\n    \"clubs\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Update a member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Luis Solier Sajami (edited)\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/members/{{member_id}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"members",
+								"{{member_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Luis Solier Sajami (edited)\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/v1/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Luis Solier Sajami (edited)\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\",\n    \"clubs\": []\n}"
+						},
+						{
+							"name": "404 NOT FOUND",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Luis Solier Sajami (edited)\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update an invalid member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Luis Solier Sajami (edited)\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/members/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"members",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Luis Solier Sajami (edited)\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Luis Solier Sajami (edited)\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\",\n    \"clubs\": []\n}"
+						},
+						{
+							"name": "404 NOT FOUND",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Luis Solier Sajami (edited)\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"   pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/members/{{member_id}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"members",
+								"{{member_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "204 NO CONTENT",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/v1/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "404 NOT FOUND",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete an invalid member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/members/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"members",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "204 NO CONTENT",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "404 NOT FOUND",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Club",
+			"item": [
+				{
+					"name": "Get all clubs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Number of museums > ' + 0, function () {",
+									"   var data = pm.response.json()",
+									"   pm.expect(data.length).to.greaterThan(0)",
+									"});",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/clubs",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/v1/clubs",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"v1",
+										"clubs"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n        \"name\": \"Club A\",\n        \"foundationDate\": \"1980-06-15\",\n        \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n        \"description\": \"Descrpcion de club A maximo 100 caracteres\",\n        \"members\": [\n            {\n                \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n                \"name\": \"Luis Solier Sajami\",\n                \"email\": \"l.soier@uniandes.edu.co\",\n                \"birthday\": \"1992-07-31\"\n            },\n            {\n                \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n                \"name\": \"Pedro Ruiz Gallo\",\n                \"email\": \"elpepe@uniandes.edu.co\",\n                \"birthday\": \"1992-07-31\"\n            }\n        ]\n    },\n    {\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n        \"name\": \"Club B\",\n        \"foundationDate\": \"2000-07-01\",\n        \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n        \"description\": \"Descrpcion de club B maximo 100 caracteres\",\n        \"members\": [\n            {\n                \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n                \"name\": \"Luis Solier Sajami\",\n                \"email\": \"l.soier@uniandes.edu.co\",\n                \"birthday\": \"1992-07-31\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Club A\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\",\n    \"members\": [\n        {\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n            \"name\": \"Luis Solier Sajami\",\n            \"email\": \"l.soier@uniandes.edu.co\",\n            \"birthday\": \"1992-07-31\"\n        },\n        {\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n            \"name\": \"Pedro Ruiz Gallo\",\n            \"email\": \"elpepe@uniandes.edu.co\",\n            \"birthday\": \"1992-07-31\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "404 NOT FOUND",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a invalid club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/clubs/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Club A\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\",\n    \"members\": [\n        {\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n            \"name\": \"Luis Solier Sajami\",\n            \"email\": \"l.soier@uniandes.edu.co\",\n            \"birthday\": \"1992-07-31\"\n        },\n        {\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n            \"name\": \"Pedro Ruiz Gallo\",\n            \"email\": \"elpepe@uniandes.edu.co\",\n            \"birthday\": \"1992-07-31\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "404 NOT FOUND",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = pm.response.json()",
+									"pm.globals.set(\"club_id\", data.id);",
+									"",
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Club A\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/clubs",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 CREATED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Club A\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Club A\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\",\n    \"members\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Add an invalid club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {",
+									"   pm.response.to.have.status(400);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Club A\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Este texto tiene mas de 100 caracteres y es necesario que retornar un BAD_REQUEST cuando se intente crear un club.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/clubs",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "201 CREATED",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Club A\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Club A\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\",\n    \"members\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Update a club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Club A (edited)\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Club A (edited)\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Club A (edited)\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\",\n    \"members\": []\n}"
+						},
+						{
+							"name": "404 NOT FOUND",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Club A (edited)\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update an invalid club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Club A (edited)\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/clubs/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Club A (edited)\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Club A (edited)\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\",\n    \"members\": []\n}"
+						},
+						{
+							"name": "404 NOT FOUND",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Club A (edited)\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a club",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"   pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "204 NO CONTENT",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "404 NOT FOUND",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete an club Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "204 NO CONTENT",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "404 NOT FOUND",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Club-Member",
+			"item": [
+				{
+					"name": "Add member to club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"   pm.response.to.have.status(201);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}",
+								"members",
+								"{{member_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n        \"name\": \"Club A\",\n        \"foundationDate\": \"1980-06-15\",\n        \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n        \"description\": \"Descrpcion de club A maximo 100 caracteres\",\n        \"members\": [\n            {\n                \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n                \"name\": \"Luis Solier Sajami\",\n                \"email\": \"l.soier@uniandes.edu.co\",\n                \"birthday\": \"1992-07-31\"\n            }\n        ]\n    }\n]"
+						},
+						{
+							"name": "404 MEMBER NOT FOUND",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						},
+						{
+							"name": "404 CLUB NOT FOUND",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add an invalid member to club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}/members/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}",
+								"members",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n        \"name\": \"Club A\",\n        \"foundationDate\": \"1980-06-15\",\n        \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n        \"description\": \"Descrpcion de club A maximo 100 caracteres\",\n        \"members\": [\n            {\n                \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n                \"name\": \"Luis Solier Sajami\",\n                \"email\": \"l.soier@uniandes.edu.co\",\n                \"birthday\": \"1992-07-31\"\n            }\n        ]\n    }\n]"
+						},
+						{
+							"name": "404 MEMBER NOT FOUND",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						},
+						{
+							"name": "404 CLUB NOT FOUND",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Find members from club",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}/members",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}",
+								"members"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n        \"name\": \"Luis Solier Sajami\",\n        \"email\": \"l.soier@uniandes.edu.co\",\n        \"birthday\": \"1992-07-31\"\n    },\n    {\n        \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n        \"name\": \"Pedro Ruiz Gallo\",\n        \"email\": \"elpepe@uniandes.edu.co\",\n        \"birthday\": \"1992-07-31\"\n    }\n]"
+						},
+						{
+							"name": "404 CLUB NOT FOUND",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Find member from club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}",
+								"members",
+								"{{member_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}"
+						},
+						{
+							"name": "404 CLUB NOT FOUND",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						},
+						{
+							"name": "404 MEMBER NOT FOUND",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						},
+						{
+							"name": "412 NON-CLUB MEMBER",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Precondition Failed",
+							"code": 412,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The member with the given id is not associated to the club\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Find an invalid member from club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}/members/00000000-0000-0000-0000-000000000000",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}",
+								"members",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Luis Solier Sajami\",\n    \"email\": \"l.soier@uniandes.edu.co\",\n    \"birthday\": \"1992-07-31\"\n}"
+						},
+						{
+							"name": "404 CLUB NOT FOUND",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						},
+						{
+							"name": "404 MEMBER NOT FOUND",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						},
+						{
+							"name": "412 NON-CLUB MEMBER",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Precondition Failed",
+							"code": 412,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The member with the given id is not associated to the club\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update members from club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"   pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n   {\n       \"id\": \"{{member_id_2}}\"\n   }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}/members",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}",
+								"members"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n   {\n       \"id\": \"{{member_id_2}}\"\n   }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Club A\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\",\n    \"members\": [\n        {\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n            \"name\": \"Linus Torvalds\",\n            \"email\": \"linux@uniandes.edu.co\",\n            \"birthday\": \"1980-07-31\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "404 CLUB NOT FOUND",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n   {\n       \"id\": \"{{member_id_2}}\"\n   }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						},
+						{
+							"name": "404 MEMBER NOT FOUND",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n   {\n       \"id\": \"{{member_id_2}}\"\n   }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update members from club with an invalid member",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"   pm.response.to.have.status(404);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n   {\n       \"id\": \"00000000-0000-0000-0000-000000000000\"\n   }\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}/members",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}",
+								"members"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n   {\n       \"id\": \"{{member_id_2}}\"\n   }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n    \"name\": \"Club A\",\n    \"foundationDate\": \"1980-06-15\",\n    \"image\": \"https://cdn2.iconfinder.com/data/icons/football-24/256/football-soccer-club-team-badge-shield-512.png\",\n    \"description\": \"Descrpcion de club A maximo 100 caracteres\",\n    \"members\": [\n        {\n            \"id\": \"48a9ab90-1276-11ed-861d-0242ac120002\",\n            \"name\": \"Linus Torvalds\",\n            \"email\": \"linux@uniandes.edu.co\",\n            \"birthday\": \"1980-07-31\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "404 CLUB NOT FOUND",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n   {\n       \"id\": \"{{member_id_2}}\"\n   }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						},
+						{
+							"name": "404 MEMBER NOT FOUND",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\n   {\n       \"id\": \"{{member_id_2}}\"\n   }\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete member from club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"   pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}",
+								"members",
+								"{{member_id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "204 NO CONTENT",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "404 CLUB NOT FOUND",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						},
+						{
+							"name": "404 MEMBER NOT FOUND",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						},
+						{
+							"name": "412 NON-CLUB MEMBER",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Precondition Failed",
+							"code": 412,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The member with the given id is not associated to the club\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete an invalid member from club",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 412\", function () {",
+									"   pm.response.to.have.status(412);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id_3}}",
+							"protocol": "http",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"clubs",
+								"{{club_id}}",
+								"members",
+								"{{member_id_3}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "204 NO CONTENT",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "404 CLUB NOT FOUND",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The club with the given id was not found\"\n}"
+						},
+						{
+							"name": "404 MEMBER NOT FOUND",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 404,\n    \"message\": \"The member with the given id was not found\"\n}"
+						},
+						{
+							"name": "412 NON-CLUB MEMBER",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://{{url}}/clubs/{{club_id}}/members/{{member_id}}",
+									"protocol": "http",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"clubs",
+										"{{club_id}}",
+										"members",
+										"{{member_id}}"
+									]
+								}
+							},
+							"status": "Precondition Failed",
+							"code": 412,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 412,\n    \"message\": \"The member with the given id is not associated to the club\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
